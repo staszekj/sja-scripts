@@ -1,0 +1,11 @@
+echo "***** EXEC FILES ********"
+find /usr/local -type f -perm +111 -iname "*$1*" -not -path "*/node_modules/*" -not -path "*/site-packages/*"
+
+echo "***** DIRS ********"
+find /usr/local -type d -iname "*$1*" -not -path "*/node_modules/*" -not -path "*/site-packages/*"
+
+echo "***** CONFIGS etc ******"
+sudo grep -rnw /etc -e ".*$1.*"
+
+echo "***** CONFIGS usr/local ****"
+sudo grep -rnw /usr/local/etc -e ".*$1.*"
