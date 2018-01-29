@@ -11,4 +11,4 @@ echo "***** DIRS /usr/local ********"
 find /usr/local -type d -iname "*$1*" -not -path "*/node_modules/*" -not -path "*/site-packages/*"
 
 echo "**** HOME less 100k files"
-find ~/ -type f -maxdepth 1 -size -100k -print0 | xargs -0 grep -Hi '.*$1.*'
+find ~/ -type f -maxdepth 1 -size -100k -exec grep -H ".*$1.*" {} \;
