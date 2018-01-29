@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 echo "***** CONFIGS /etc ******"
 sudo grep -rnw /etc -e ".*$1.*"
 
